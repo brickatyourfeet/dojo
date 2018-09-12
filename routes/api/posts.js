@@ -15,7 +15,7 @@ const validatePostInput = require('../../validation/post')
 // @route GET api/posts/test
 // @desc Tests post route
 // @access Public
-router.get('/test', (req, res) => res.json({msg: "posts test route"}))
+router.get('/test', (req, res) => res.json({ msg: "posts test route" }))
 
 // @route GET api/posts
 // @desc Get all posts
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
   Post.find()
   .sort({ date: -1 })
   .then(posts => res.json(posts))
-  .catch(err => res.status(404).json({nopostsfound: err}))
+  .catch(err => res.status(404).json({ nopostsfound: err }))
 })
 
 // @route GET api/posts/:id
@@ -78,10 +78,57 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }),
 
       //delete user
       post.remove()
-      .then(() => res.json({ user: 'deleted' }))
+      .then(() => res.json({ user: 'post deleted' }))
       .catch(err => res.status(404).json({ postnotfound: err }))
     })
   })
 })
+
+// @route POST api/posts/like/:id
+// @desc post like to a comment
+// @access Private
+router.post('/like/:id', passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+  Profile.findOne({ user: req.user.id })
+  .then(profile => {
+    Post.findById(req.params.id)
+    .then(post => {
+      if(post.likes.filter(like => like.user.toString() === req.user.id).length > 0){
+        return res.status(400).json({ liked: 'user already liked this post' })
+      }
+      //add user is to post likes
+      post.likes.unshift({ user: req.user.id })
+
+      post.save()
+      .then(post => res.json(post))
+    })
+      .catch(err => res.status(404).json({ postnotfound: err }))
+    })
+  })
+
+  // @route POST api/posts/unlike/:id
+// @desc post unlike to a comment
+// @access Private
+router.post('/unlike/:id', passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+  Profile.findOne({ user: req.user.id })
+  .then(profile => {
+    Post.findById(req.params.id)
+    .then(post => {
+      if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
+        return res.status(400).json({ liked: 'cannot unlike, not yet liked' })
+      }
+      //get index to remove
+      const removeIndex = post.likes.map(item => item.user.toString()).indexOf(req.user.id)
+
+      //splice like out of array
+      post.likes.splice(removeIndex, 1)
+
+      post.save()
+      .then(post => res.json(post))
+    })
+      .catch(err => res.status(404).json({ postnotfound: err }))
+    })
+  })
 
 module.exports = router
