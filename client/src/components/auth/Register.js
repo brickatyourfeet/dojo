@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import classnames from 'classnames'
+import { connect } from 'react-redux'
+import { registerUser } from '../../actions/authActions'
 
-export default class Register extends Component {
+class Register extends Component {
   constructor(){
     super()
     this.state = {
@@ -13,8 +16,14 @@ export default class Register extends Component {
       errors: {}
     }
 
-    this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    //this.onChange = this.onChange.bind(this)
+    //this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+      this.setState({ errors: nextProps.errors })
+    }
   }
 
   onChange = (e) => {
@@ -31,9 +40,8 @@ export default class Register extends Component {
       password2: this.state.password2
     }
 
-    axios.post('/api/users/register', newUser)
-      .then(res => console.log(res.data))
-      .catch(err => this.setState( { errors: err.response.data } ))
+    this.props.registerUser(newUser, this.props.history)
+
   }
 
   render() {
@@ -41,6 +49,9 @@ export default class Register extends Component {
     const { errors } = this.state
     //destructuing review - above line is the same as below
     //const errors = this.state.errors
+
+    //can grab current user with this?
+    const { user } = this.props.auth
 
     return (
       <div className="register">
@@ -75,7 +86,7 @@ export default class Register extends Component {
                   onChange={this.onChange} 
                 />
                 {errors.email && (<div className='invalid-feedback'>{errors.email}</div>)}
-                <small className="form-text text-muted">Currently using Gravatar for email, so use Gmail if you want a profile image. :)</small>
+                <small className="form-text text-muted">Currently using Gravatar for email, so use Gmail if you want a profile image.</small>
               </div>
               <div className="form-group">
                 <input 
@@ -112,3 +123,16 @@ export default class Register extends Component {
     )
   }
 }
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+})
+
+export default connect(mapStateToProps, { registerUser })(withRouter(Register))
