@@ -1,4 +1,4 @@
-##Dojo
+## Dojo
 
 A MERN stack application for logging in students and instructors and monitoring student progress and activity. 
 
