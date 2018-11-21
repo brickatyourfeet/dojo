@@ -51,6 +51,7 @@ class CreateProfile extends Component {
       // turn skills and hobbies arrays to comma separated values
       const skillsCSV = profile.skills.join(',')
       const hobbiesCSV = profile.hobbies.join(',')
+      // no need to set these to empty strings because they would be anyway 
 
       // check for empties, if empty - ''
       profile.company = !isEmpty(profile.company) ? profile.company : ''
