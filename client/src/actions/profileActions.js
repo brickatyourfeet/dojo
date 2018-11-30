@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-import { GET_PROFILE, GET_PROFILES, PROFILE_LOADING, GET_ERRORS, CLEAR_CURRENT_PROFILE, SET_CURRENT_USER } from './types'
+import { 
+  GET_PROFILE, 
+  GET_PROFILES, 
+  PROFILE_LOADING, 
+  GET_ERRORS, 
+  CLEAR_CURRENT_PROFILE, 
+  SET_CURRENT_USER 
+} from './types'
 
 // get curr profile
 export const getCurrentProfile = () => dispatch => {
@@ -16,6 +23,24 @@ export const getCurrentProfile = () => dispatch => {
       dispatch({
         type: GET_PROFILE,
         payload: {}
+      })
+    )
+}
+
+// get profile by handle
+export const getProfileByHandle = (handle) => dispatch => {
+  dispatch(setProfileLoading())
+  axios.get(`/api/profile/handle/${handle}`)
+    .then(res => 
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err => 
+      dispatch({
+        type: GET_PROFILE,
+        payload: null
       })
     )
 }
