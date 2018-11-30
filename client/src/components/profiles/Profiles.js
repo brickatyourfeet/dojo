@@ -18,7 +18,7 @@ class Profiles extends Component {
       profileItems = <Spinner />
     } else {
       if(profiles.length > 0){
-        profileItems = profile.map(profile => (
+        profileItems = profiles.map(profile => (
           <ProfileItem key={profile._id} profile={profile} /> 
         ))
       } else {
