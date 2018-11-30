@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Spinner from '../reusable/Spinner'
+import ProfileItem from './ProfileItem'
 import { getProfiles } from '../../actions/profileActions'
 
 class Profiles extends Component {
@@ -17,7 +18,9 @@ class Profiles extends Component {
       profileItems = <Spinner />
     } else {
       if(profiles.length > 0){
-        profileItems = <h2>profiles are here</h2>
+        profileItems = profile.map(profile => (
+          <ProfileItem key={profile._id} profile={profile} /> 
+        ))
       } else {
         profileItems = <h2>no profiles found</h2>
       }
