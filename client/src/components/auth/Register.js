@@ -57,7 +57,7 @@ class Register extends Component {
     //const errors = this.state.errors
 
     //can grab current user with this?
-    const { user } = this.props.auth
+    //const { user } = this.props.auth
 
     return (
       <div className="register">

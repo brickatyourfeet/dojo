@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import classname from 'classnames'
 import { Link } from 'react-router-dom'
 import { deletePost, like, unlike } from '../../actions/postActions'
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 class PostItem extends Component {
   onDeleteClick(id){
