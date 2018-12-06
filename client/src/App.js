@@ -40,7 +40,7 @@ if(localStorage.jwtToken){
   // expired token check
   const currentTime = Date.now() / 1000
   if(decoded.exp < currentTime){
-    store.dispatch(logoutUser)
+    store.dispatch(logoutUser())
     // then clear currentProfile
     store.dispatch(clearCurrentProfile())
     // redir to login
