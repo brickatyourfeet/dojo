@@ -19,6 +19,7 @@
     "express": "^4.16.3",
     "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.2.1",
+    "mdbreact": "^4.8.5-patch.1",
     "mongoose": "^5.1.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
