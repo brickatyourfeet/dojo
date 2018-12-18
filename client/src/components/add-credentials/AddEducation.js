@@ -137,7 +137,7 @@ class AddEducation extends Component {
               <input 
                 type="submit" 
                 value="Submit" 
-                className="btn btn-into btn-block mt-4"
+                className="btn btn-into mt-4 btn-outline-info"
               />
               </form>
             </div>

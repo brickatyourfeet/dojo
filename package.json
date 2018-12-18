@@ -25,6 +25,7 @@
     "passport-jwt": "^4.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-fade-in": "^0.1.6",
     "validator": "^10.2.0"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import isEmpty from '../../validation/is-empty'
+import FadeIn from 'react-fade-in'
 
 class ProfileItem extends Component {
   render() {
@@ -9,6 +10,7 @@ class ProfileItem extends Component {
 
 
     return (
+<FadeIn transitionDuration="2000">
       <div className="card card-body bg-light mb-3">
         <div className="row">
           <div className="col-2">
@@ -39,6 +41,7 @@ class ProfileItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     )
   }
 }
