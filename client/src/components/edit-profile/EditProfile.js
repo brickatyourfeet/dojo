@@ -224,14 +224,6 @@ class CreateProfile extends Component {
                   error={errors.location}
                   info="Option to include city and state"
                 />
-                <TextFieldGroup 
-                  placeholder="Company"
-                  name="company"
-                  value={this.state.company}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                  info="Option to include company you work for"
-                />
                 {/* have skills and hobbies change for student/admin*/}
                 <TextFieldGroup 
                   placeholder="Skills"

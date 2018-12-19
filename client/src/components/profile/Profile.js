@@ -38,9 +38,6 @@ class Profile extends Component {
                 Return to Profiles
               </Link>
             </div>
-            <div className="col-md-6">
-              Space
-            </div>
           </div>
           <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />

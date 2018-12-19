@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 class ProfileGithub extends Component {
@@ -62,7 +62,7 @@ class ProfileGithub extends Component {
     return (
       <div ref="mounted">
         <hr />
-        <h3 className="mb-4">New GitHub Repos</h3>
+        <h3 className="mb-4">Recent GitHub Repos</h3>
         {repoItems}
       </div>
     )
