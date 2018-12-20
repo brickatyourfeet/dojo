@@ -5,7 +5,7 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/explode.jpg') no-repeat;
+  background: url('./img/brains.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -37,4 +37,36 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.navbar {
+  background-color: #61210F;
+}
+
+.navbar-brand {
+  color: #EDAE49;
+  font-size: 33px;
+  font-family: "arial";
+}
+
+.navbar-brand:hover {
+  color: #F5FDC6;
+}
+
+.nav-link {
+  color: #EA2B1F;
+  font-size: 23px;
+  font-family: "helvetica";
+}
+
+.nav-link:hover {
+  color: #F5FDC6
+}
+
+.dojo-footer {
+  background-color: #EA2B1F;
+}
+
+.signup {
+  width: 100px;
 }

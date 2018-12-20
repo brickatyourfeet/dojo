@@ -18,12 +18,12 @@ class Landing extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12 text-center">
-              <h1 className="display-3 mb-4">Dojo
+              <h1 className="display-3 mb-4">Welcome to Bellevue CoderDojo!
               </h1>
-              <p className="lead"> Create your student or Instructor / Dev / Admin profile </p>
+              {/* <p className="lead"> Create your student or Instructor / Dev / Admin profile </p> */}
               <hr />
-              <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
-              <Link to="/login" className="btn btn-lg btn-light">Login</Link>
+              <Link to="/register" className="btn btn-lg btn-info mr-2 signup">Sign Up</Link>
+              <Link to="/login" className="btn btn-lg btn-light login">Login</Link>
             </div>
           </div>
         </div>
