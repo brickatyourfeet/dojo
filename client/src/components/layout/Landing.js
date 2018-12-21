@@ -14,16 +14,20 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-      <div className="dark-overlay landing-inner text-light">
+      <div className="landing-inner text-light">
         <div className="container">
           <div className="row">
             <div className="col-md-12 text-center">
-              <h1 className="display-3 mb-4">Welcome to Bellevue CoderDojo!
+              <h1 className="display-3 mb-4 welcome">Welcome to Bellevue CoderDojo!
               </h1>
               {/* <p className="lead"> Create your student or Instructor / Dev / Admin profile </p> */}
               <hr />
-              <Link to="/register" className="btn btn-lg btn-info mr-2 signup">Sign Up</Link>
-              <Link to="/login" className="btn btn-lg btn-light login">Login</Link>
+              <div>
+                <Link to="/register" className="btn btn-lg btn-info mr-2 signup-button">Sign Up</Link>
+              </div>
+              <div>
+                <Link to="/login" className="btn btn-lg btn-light login-button">Login</Link>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/brains.jpg') no-repeat;
+  background: url('./img/binary.png') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -40,7 +40,7 @@ img {
 }
 
 .navbar {
-  background-color: #61210F;
+  background-color: rgba(71, 5, 5, 1);
 }
 
 .navbar-brand {
@@ -63,10 +63,27 @@ img {
   color: #F5FDC6
 }
 
-.dojo-footer {
-  background-color: #EA2B1F;
+.footer {
+  background-color: #001514;
+  color: #61210F;
 }
 
-.signup {
-  width: 100px;
+.signup-button {
+  width: 25%;
+  margin: 10px;
+  background-color: rgba(71, 5, 5, 1);
+  border: none;
+}
+
+.login-button {
+  width: 25%;
+  margin: 10px;
+  background-color: #001514;
+  border: none;
+  color: #f7fff7;
+}
+
+.welcome {
+  color: #094074;
+  font-style: bold;
 }
